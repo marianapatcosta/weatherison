@@ -1,0 +1,16 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended"],
+  "jsRules": {},
+  "rules": {
+    "no-console": false,
+    "trailing-comma": false,
+    "no-trailing-whitespace": false,
+    "noUnusedLocals": false,
+    "object-literal-sort-keys": false,
+    "interface-name": [true, "never-prefix"],
+    "ordered-imports": false,
+    "@typescript-eslint/ban-ts-ignore": "off"
+  },
+  "rulesDirectory": []
+}

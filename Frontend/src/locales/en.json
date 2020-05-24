@@ -1,0 +1,31 @@
+{
+  "message": "hello i18n !!",
+  "header": {
+    "locationPlaceholder": "location and country",
+    "yourLocation": "your location"
+  },
+  "preferences": {
+    "temperatureUnit": "temperature unit",
+    "language": "language",
+    "darkMode": "dark mode",
+    "fahrenheit": "°F",
+    "celsius": "°C",
+    "english": "en",
+    "portuguese": "pt",
+    "on": "on",
+    "off": "off"
+  },
+  "modal": {
+    "errorHeader": "An error occurred",
+    "ok": "ok"
+  },
+  "weatherCard": {
+    "apparentTemp": "apparent temperature",
+    "precipIntensity": "precipitation intensity",
+    "precipProbability": "precipitation probability",
+    "wind": "wind"
+  },
+  "weatherCompare": {
+    "timesToSelect": ["current", "today", "tomorrow"]
+  }
+}

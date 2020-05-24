@@ -1,0 +1,89 @@
+.card {
+  background-color: $color-secondary;
+  border-radius: 10%;
+  width: 25%;
+  height: 55;
+  margin: 15px;
+  padding-bottom: 10px;
+  -webkit-border-radius: 10%;
+  -moz-border-radius: 10%;
+  -ms-border-radius: 10%;
+  -o-border-radius: 10%;
+
+  &--dark {
+    background-color: $color-secondary-dark;
+  }
+
+  &__header {
+    margin: 0;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  &__weather-main {
+    display: flex;
+    justify-content: space-between;
+
+    &--icon {
+      width: 50%;
+    }
+
+    &--temperature {
+      width: 50%;
+      padding: 10px 15px 10px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: space-evenly;
+    }
+
+    &--current-temperature {
+      font-size: 130%;
+      align-self: center;
+    }
+
+    &--apparent-temperature {
+      font-size: 85%;
+      align-self: flex-end;
+      padding-right: 7%;
+    }
+  }
+
+  &__weather-description {
+    font-size: 80%;
+    padding-left: 7%;
+    padding-bottom: 7%;
+  }
+
+  &__weather-details {
+    display: flex;
+    justify-content: space-between;
+    padding: 7%;
+    font-size: 85%;
+    border-top: 1px solid $color-primary;
+    border-bottom: 1px solid $color-primary;
+    background-color: #fcfcfc;
+
+    & div {
+      padding: 5px 0;
+    }
+  }
+
+  &__footer {
+    width: 100%;
+    height: 40%;
+    /*  position: relative; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 5%;
+
+    &--text {
+      font-size: 70%;
+      margin-right: 5%;
+    }
+    &--logo {
+      width: 25%;
+    }
+  }
+}
