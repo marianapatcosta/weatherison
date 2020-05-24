@@ -1,0 +1,66 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  &__label {
+    display: inline-block;
+    font-size: 75%;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &--disabled {
+      color: $color-disabled;
+
+      &:hover {
+        cursor: default;
+      }
+    }
+  }
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-top: 1px;
+    border: 1px solid $color-primary;
+    box-shadow: 0 2px 2px $color-shadow;
+    border-radius: 3px;
+    background-color: $color-secondary;
+    margin-left: auto;
+
+    &:hover {
+      border: 1px solid $color-yellow;
+      cursor: pointer;
+    }
+
+    &--dark {
+      background-color: $color-secondary-dark;
+    }
+
+    &--disabled {
+      background-color: $color-disabled;
+      opacity: 0.3;
+      pointer-events: none;
+
+      &:hover {
+        cursor: default;
+        border: none;
+      }
+    }
+
+    &--tick {
+      width: 17px;
+      height: 17px;
+      //filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
+
+      &--disabled {
+        //filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
+      }
+    }
+  }
+}

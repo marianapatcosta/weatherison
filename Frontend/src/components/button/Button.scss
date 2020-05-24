@@ -1,0 +1,75 @@
+.button {
+  border: 1px solid $color-transparent;
+  box-shadow: none;
+  background-color: $color-transparent;
+  font-size: 80%;
+  padding: 5px;
+  margin: 5px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+    border-bottom: 1px solid $color-yellow;
+  }
+
+  &--active {
+    color: $color-yellow;
+    border-bottom: 1px solid $color-yellow;
+    font-weight: 700;
+  }
+
+  &--icon {
+    border: 1px solid $color-yellow;
+    box-shadow: 0 2px 2px $color-shadow;
+    padding: 5px 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    transition: background-color 0.2s;
+    -webkit-transition: background-color 0.2s;
+    -moz-transition: background-color 0.2s;
+    -ms-transition: background-color 0.2s;
+    -o-transition: background-color 0.2s;
+
+    &:hover {
+      background-color: $color-yellow;
+      opacity: 0.8;
+    }
+  }
+
+  &--small {
+    height: 5%;
+    width: 10%;
+    font-weight: normal;
+    padding: 5px 10px;
+
+    &:focus {
+      outline: none;
+      border: 1px solid $color-yellow;
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+    }
+
+    &:hover {
+      background-color: $color-yellow;
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+    }
+  }
+
+  &__icon {
+    vertical-align: middle;
+    color: $color-font;
+  }
+}

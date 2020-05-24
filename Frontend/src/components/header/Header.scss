@@ -1,0 +1,67 @@
+.header {
+  padding: 20px;
+  background-color: $color-secondary;
+  box-shadow: 0 2px 2px $color-shadow;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px; //100px
+  display: flex;
+  align-items: center;
+
+  &--dark {
+    background-color: $color-secondary-dark;
+  }
+
+  &__up {
+    display: flex;
+    justify-content: space-between;
+
+    &--title {
+      width: 25%;
+      font-size: 110%;
+    }
+
+    &--location {
+      width: auto;
+      margin-left: auto;
+      font-size: 90%;
+    }
+  }
+
+  &__down {
+    display: flex;
+    align-content: center;
+    justify-content: flex-end;
+
+    &--input {
+      width: auto;
+      margin: 15px;
+    }
+
+    &--selection {
+      border: 1px solid #eeeeee;
+      font-size: 80%x;
+      height: 35px;
+      margin: 10px;
+      width: auto;
+      box-shadow: 0 2px 2px $color-shadow;
+      outline: none;
+
+      &-placeholder {
+        display: none;
+      }
+    }
+  }
+
+  &__preferences-icon {
+    color: $color-font;
+    padding: 10px;
+    vertical-align: middle;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

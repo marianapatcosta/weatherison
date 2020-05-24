@@ -1,0 +1,127 @@
+.toggle-switch__wrapper {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.toggle-switch {
+  width: 65px;
+  margin: 5px;
+  vertical-align: top;
+
+  &--with-label {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    margin: 5px 0;
+  }
+
+  &__label {
+    font-size: 75%;
+    line-height: 15px;
+    padding: 0 2px;
+    vertical-align: middle;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &--disabled {
+      color: $color-disabled;
+
+      &:hover {
+        cursor: default;
+      }
+    }
+  }
+
+  &__label-left {
+    float: left;
+    font-size: 70%;
+  }
+
+  &__label-right {
+    float: right;
+    font-size: 70%;
+  }
+
+  &__input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  &__slider {
+    display: inline-block;
+    background-color: $color-secondary;
+    border-radius: 34px;
+    cursor: pointer;
+    height: 18px;
+    width: 45px;
+    position: relative;
+    padding: 2px;
+    transition: 0.4s;
+    -webkit-transition: 0.4s;
+    vertical-align: middle;
+
+    &:hover {
+      box-shadow: 0 0 0 1px $color-yellow;
+    }
+
+    &:before {
+      background-color: $color-yellow;
+      border-radius: 50%;
+      box-shadow: 0 2px 2px $color-yellow;
+      content: "";
+      height: 21px;
+      width: 21px;
+      left: 0;
+      bottom: 0px;
+      position: absolute;
+      transition: 0.4s;
+      -webkit-transition: 0.4s;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+    }
+
+    &--disabled {
+      border: 1px solid $color-disabled;
+      opacity: 0.3;
+
+      &:before {
+        background-color: $color-disabled;
+        opacity: 0.8;
+      }
+
+      &:hover {
+        cursor: default;
+      }
+    }
+
+    &--dark {
+      background-color: $color-secondary-dark;
+    }
+  }
+  &__input:checked + &__slider {
+    background-color: $color-blue;
+  }
+
+  &__input:checked + &__slider--disabled {
+    border: none;
+  }
+
+  &__input:focus + &__slider {
+    box-shadow: 0 0 1px;
+  }
+
+  &__input:checked + &__slider:before {
+    transform: translateX(29px);
+    -webkit-transform: translateX(29px);
+    -ms-transform: translateX(29px);
+    -moz-transform: translateX(29px);
+    -o-transform: translateX(29px);
+  }
+}
