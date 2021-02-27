@@ -22,13 +22,13 @@ export default class Accuweather extends WeatherInfo {
       weatherData.RelativeHumidity,
       milesPerHourToMetersPerSecond(
         weatherData.Wind?.Speed.Imperial.Value ||
-          weatherData.Day.Wind.Speed.Value ||
-          weatherData.Night.Wind.Speed.Value
+          weatherData.Day?.Wind.Speed.Value ||
+          weatherData.Night?.Wind.Speed.Value
       ),
       degreesToCompassDirection(
         weatherData.Wind?.Direction.Degrees ||
-          weatherData.Day.Wind.Direction.Degrees ||
-          weatherData.Night.Wind.Direction.Degrees
+          weatherData.Day?.Wind.Direction.Degrees ||
+          weatherData.Night?.Wind.Direction.Degrees
       ),
       weatherData.WeatherIcon || weatherData.Day.Icon || weatherData.Night.Icon,
       fahrenheitToCelsiusConverter(weatherData.Temperature.Maximum?.Value),

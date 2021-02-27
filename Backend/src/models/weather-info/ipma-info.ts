@@ -17,7 +17,7 @@ export default class IpmaInfo extends WeatherInfo {
       undefined,
       getWindSpeed(weatherData.classWindSpeed, lang),
       weatherData.predWindDir,
-      undefined,
+      weatherData.idWeatherType,
       weatherData.tMax,
       weatherData.tMin,
       undefined,

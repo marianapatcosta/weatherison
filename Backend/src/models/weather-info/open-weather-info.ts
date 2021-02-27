@@ -4,7 +4,7 @@ import { degreesToCompassDirection } from "./utils/data-conversion";
 export default class OpenMapInfo extends WeatherInfo {
   constructor(weatherData) {
     super(
-      weatherData.dt,
+      weatherData.dt * 1000,
       weatherData.weather[0].description,
       weatherData.rain?.["1h"] || weatherData.rain,
       undefined,
@@ -18,8 +18,8 @@ export default class OpenMapInfo extends WeatherInfo {
       weatherData.temp.min,
       weatherData.uvi,
       undefined,
-      weatherData.sunrise,
-      weatherData.sunset
+      weatherData.sunrise * 1000,
+      weatherData.sunset * 1000
     );
   }
 }
