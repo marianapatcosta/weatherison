@@ -4,6 +4,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  &:focus {
+    outline: 0.125rem solid $color-highlight;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
 }
 
 button,
@@ -18,6 +26,28 @@ button {
 body {
   width: 100vw;
   height: 100vh;
-  margin: 0;
   background-color: $color-primary;
+  font-family: $font-body;
+  color: $color-font;
+  font-size: 0.8rem;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
 }
+
+@media only screen and (min-width: 480px) {
+  body {
+    font-size: 0.85rem;
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  body {
+    font-size: 1rem;
+  }
+}
+
+
+@media only screen and (min-width: 1023px) {
+ 
+}
+

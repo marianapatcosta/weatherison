@@ -1,15 +1,10 @@
 <template>
-  <div class="app" :class="{ 'app--dark': isDarkMode }">
-    <Header @user-preferences="toggleUserPreferences" ref="header"></Header>
+  <div class="app">
+    <Header />
     <main role="main">
-      <router-view />
+     <!--  <router-view /> -->
+     <WeatherCompare/>
     </main>
-    <div ref="userPreferences">
-      <UserPreferences
-        class="app__user-preferences"
-        v-show="isUserPreferencesVisible"
-      ></UserPreferences>
-    </div>
   </div>
 </template>
 

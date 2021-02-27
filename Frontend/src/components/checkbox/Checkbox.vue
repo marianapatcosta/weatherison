@@ -1,29 +1,25 @@
 <template>
-  <div class="checkbox">
-    <div
-      class="checkbox__label"
-      :class="{ 'checkbox__label--disabled': disabled }"
-      @click="handleCheck"
-    >
-      {{ label }}
-    </div>
+  <label class="checkbox">
+    <input
+      class="checkbox__input"
+      type="checkbox"
+      :name="name || label"
+      :checked="checked"
+      :disabled="disabled"
+      @change="handleCheck($event)"
+    />
     <div
       class="checkbox__toggle"
-      :class="{
-        'checkbox__toggle--disabled': disabled,
-        'checkbox__toggle--dark': isDarkMode
-      }"
-      @click="handleCheck"
     >
       <img
         v-if="checked"
         class="checkbox__toggle--tick"
-        :class="{ 'checkbox__toggle--tick--disabled': disabled }"
         alt="checkbox tick"
         src="../../assets/icons/tick.svg"
       />
     </div>
-  </div>
+    {{ label }}
+  </label>
 </template>
 
 <script src="./Checkbox.ts"></script>

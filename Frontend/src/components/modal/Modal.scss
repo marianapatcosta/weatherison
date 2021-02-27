@@ -5,7 +5,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background: rgba($color-shadow, 0.9);
+    background-color: rgba($color-shadow, 0.9);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,29 +13,24 @@
   }
 
   &__content {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 30%;
     font-size: 90%;
     background-color: $color-secondary;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-    border-radius: 8px;
-    transform: translate(-50%, -50%);
-    min-width: 450px;
-
-    &--dark {
-      background-color: $color-secondary-dark;
-    }
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.26);
+    min-width: 20rem;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
   }
 
   &__header {
-    /* width: 100%; */
-    padding: 10px 5px;
+    padding: 0.625rem 0.3rem;
     background: $color-yellow;
-    color: white;
+    color: $color-white;
     text-align: center;
-
+    position: relative
+    ;
     &--title {
       display: inline;
       margin: 0.5rem;
@@ -43,25 +38,35 @@
 
     &--close {
       position: absolute;
-      right: 10px;
-      background-color: $color-transparent;
-      display: inline-block;
-      border-radius: 60px;
-      /* padding: 0.5em 0.6em; */
+      right: 0.625rem;;
+      cursor: pointer;
+      padding: 0.125rem 0.3rem;
 
       &:hover {
-        cursor: pointer;
+        font-size: 120%;
       }
+
+      &:focus {
+        outline: 0.125rem solid $color-white;
+      }
+
+      &:focus:not(:focus-visible) {
+        outline: none;
+      }
+    
     }
   }
+  
   &__body {
-    margin-top: 10px;
-    padding: 20px 5px;
+    margin-top: 0.625rem;
+    padding: 1.2rem 0.3rem;
     text-align: center;
   }
 
   &__footer {
-    text-align: center;
-    padding: 10px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0.5rem;
   }
 }

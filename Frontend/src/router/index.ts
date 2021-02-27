@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import WeatherCompare from "../views/weather-compare/WeatherCompare.vue";
+import WeatherCompare from "@/views/weather-compare/WeatherCompare.vue";
 
 Vue.use(VueRouter);
 
@@ -10,20 +10,14 @@ const routes = [
     name: "WeatherCompare",
     component: WeatherCompare,
     meta: {
-      title: "Weatherison",
-      icon: "/lock.png"
+      title: "WeatherCompare",
+      icon: ""
     }
   },
-  /*  {
-    path: "/today",
-    name: "WeatherCompare",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(
-        /* webpackChunkName: "about"  "../views/weather-compare/WeatherCompare.vue"
-      )
+/*   {
+    path: "/details",
+    name: "WeatherDetails",
+    component: () => import("@/views/weather-details/WeatherDetails.vue")
   }, */
   { path: "*", redirect: "/" }
 ];

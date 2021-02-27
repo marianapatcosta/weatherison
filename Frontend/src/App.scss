@@ -1,19 +1,4 @@
 .app {
-  font-family: $font-body;
-  color: $color-font;
-  font-size: 20px;
-  font-weight: 300;
-  text-rendering: optimizeLegibility;
   width: 100vw;
   height: 100vh;
-
-  &--dark {
-    color: $color-font-dark;
-  }
-
-  &__user-preferences {
-    position: absolute;
-    top: 4%;
-    right: 0;
-  }
 }

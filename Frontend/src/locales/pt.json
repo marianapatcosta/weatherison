@@ -1,19 +1,28 @@
 {
-  "message": "hello i18n !!",
+  "card": {
+    "clickCard": "Clique para ver detalhes da previsão de {api}"
+  },
   "header": {
-    "locationPlaceholder": "localidade e país",
+    "geolocationError": "A geolocalização não é suportada pelo browser!",
+    "locationPlaceholder": "Escreva a localidade e país",
+    "toggleMenu": "abrir/fechar o menu",
+    "togglePreferences": "abrir/fechar definições",
+    "wordsToDelete": ["Região de", "Distrito de", "Município"],
     "yourLocation": "localização atual"
   },
   "preferences": {
-    "temperatureUnit": "unidade de temperatura",
-    "language": "idioma",
-    "darkMode": "modo escuro",
-    "fahrenheit": "°F",
+    "apiSelectionError": "Pelo menos uma previsão deve estar selecionada!",
     "celsius": "°C",
     "english": "en",
-    "portuguese": "pt",
+    "fahrenheit": "°F",
+    "language": "idioma",
+    "noApis": "Não há fontes de previsão meteorológica",
     "on": "on",
-    "off": "off"
+    "off": "off",
+    "portuguese": "pt",
+    "settings": "Definições",
+    "temperatureUnit": "temperatura",
+    "weatherSources": "Fontes de previsão meteorológica"
   },
   "modal": {
     "errorHeader": "Ocorreu um erro",
@@ -21,11 +30,23 @@
   },
   "weatherCard": {
     "apparentTemp": "temperatura aparente",
+    "app": "apar",
+    "humidity": "humidade",
+    "moon": "fase lunar",
+    "notAvailable": "informação não disponível",
     "precipIntensity": "intensidade precipitação",
     "precipProbability": "probabilidade precipitação",
+    "source": "fonte",
+    "tMax": "temperatura máxima",
+    "tMin": "temperatura mínima",
+    "uv": "radiação UV",
     "wind": "vento"
   },
   "weatherCompare": {
-    "timesToSelect": ["agora", "hoje", "amanhã"]
+    "back": "Voltar",
+    "backAria": "Voltar para a comparação meteorológica",
+    "geolocationError": "A geolocalização não é suportada pelo browser!",
+    "timesToSelect": ["agora", "hoje", "amanhã"],
+    "weatherError": "Não foi possível obter dados de {apis}"
   }
 }

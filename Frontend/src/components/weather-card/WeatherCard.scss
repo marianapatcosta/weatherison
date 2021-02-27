@@ -1,89 +1,135 @@
 .card {
   background-color: $color-secondary;
+  box-shadow: 0 0.125rem 0.3rem 0.2rem rgba($color-black, 0.3);
   border-radius: 10%;
-  width: 25%;
-  height: 55;
-  margin: 15px;
-  padding-bottom: 10px;
+  width: 15rem;
+  height: 18rem;
+  padding-bottom: 0.625rem;
   -webkit-border-radius: 10%;
   -moz-border-radius: 10%;
   -ms-border-radius: 10%;
   -o-border-radius: 10%;
 
-  &--dark {
-    background-color: $color-secondary-dark;
+  &--clickable {
+    cursor: pointer;
+  }
+
+  &__content {
+    height: calc(100% - 2rem);
+
+    &--not-available {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 0.063rem solid #f4f4f4;
+
+      & > img {
+        width: 8rem;
+        height: 8rem;
+        margin-bottom: 1rem;
+      }
+
+      & > div {
+        font-size: 90%;
+      }
+    }
   }
 
   &__header {
-    margin: 0;
     overflow: hidden;
     width: 100%;
+    padding: 0.625rem;
+    display: flex;
+    flex-direction: column;
   }
 
   &__weather-main {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     &--icon {
-      width: 50%;
+      width: 6rem;
+      height: 6rem;
     }
 
     &--temperature {
       width: 50%;
-      padding: 10px 15px 10px 0;
+      padding-left: 1rem;
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
+      align-items: flex-start;
       justify-content: space-evenly;
     }
 
     &--current-temperature {
       font-size: 130%;
-      align-self: center;
     }
 
     &--apparent-temperature {
       font-size: 85%;
-      align-self: flex-end;
-      padding-right: 7%;
+      padding-top: 0.625rem;
     }
   }
 
   &__weather-description {
     font-size: 80%;
-    padding-left: 7%;
-    padding-bottom: 7%;
   }
 
   &__weather-details {
     display: flex;
     justify-content: space-between;
-    padding: 7%;
-    font-size: 85%;
-    border-top: 1px solid $color-primary;
-    border-bottom: 1px solid $color-primary;
-    background-color: #fcfcfc;
+    align-items: center;
+    padding: 0.625rem;
+    font-size: 80%;
+    border-top: 0.063rem solid $color-primary;
+    border-bottom: 0.063rem solid $color-primary;
+    background-color: $color-light-gray;
 
     & div {
-      padding: 5px 0;
+      padding: 0.5rem 0;
     }
   }
 
   &__footer {
-    width: 100%;
-    height: 40%;
-    /*  position: relative; */
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding: 5%;
+    padding: 0.625rem;
+    height: 3rem;
+    margin-right: 0.625rem;
 
     &--text {
       font-size: 70%;
-      margin-right: 5%;
+      margin-right: 0.3rem;
     }
     &--logo {
+      width: 100%;
+    }
+  }
+
+  &__tooltip-wrapper {
+    position: relative;
+
+    &--margin {
+      margin-bottom: 0.625rem;
+    }
+
+    &--footer {
       width: 25%;
     }
+  }
+
+  &__tooltip {
+    bottom: -1.8rem;
+    white-space: inherit;
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .card {
+    width: 17rem;
+    height: 19rem;
   }
 }

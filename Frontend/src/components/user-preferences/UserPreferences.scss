@@ -1,62 +1,42 @@
 .user-preferences {
   background-color: $color-primary;
-  border-radius: 5%;
-  border: 1px solid $color-secondary;
-  box-shadow: 0 px 1px $color-secondary;
-  -moz-border-radius: 5%;
-  margin: 40px 2px;
-  padding: 20px;
-  width: 20%;
-  height: auto;
+  border-radius: 0.3rem;
+  -webkit-border-radius: 0.3rem;
+  -moz-border-radius: 0.3rem;
+  -ms-border-radius: 0.3rem;
+  -o-border-radius: 0.3rem;
+  box-shadow: 0 0.125rem 0.125rem $color-secondary;
+  padding: 1.2rem;
+  width: 12rem;
   white-space: nowrap;
   z-index: 10;
 
-  &--dark {
-    background-color: $color-primary-dark;
-
-    &::after {
-      border-top-color: $color-primary-dark;
-    }
-  }
-
   &__title {
     font-family: $font-emphasis;
-    font-size: 85%;
-    padding-bottom: 5px;
+    padding-bottom: 0.3rem;
   }
 
   &__toggle {
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
   }
 
   &__apis {
-    &--title {
+    &-title {
       font-family: $font-emphasis;
-      font-size: 80%;
-      margin-top: 5px;
-      padding: 10px 0;
-      border-top: 1px solid $color-secondary;
+      font-size: 90%;
+      margin-top: 0.3rem;
+      padding: 0.625rem 0;
+      border-top: 0.063rem solid $color-secondary;
     }
   }
 
-  &::after {
-    content: " ";
-    position: absolute;
-    top: -5%;
-    right: 5%;
-    width: 0;
-    height: 0;
-    border: 19px solid $color-secondary;
-    border-top-color: currentColor;
-    color: $color-primary;
-    border-bottom: 0;
-    border-bottom: 0;
-    margin-left: 70px;
-    margin-bottom: 210px;
-    transform: rotate(180deg) scaleX(-1);
-    -webkit-transform: rotate(180deg) scaleX(-1);
-    -moz-transform: rotate(180deg) scaleX(-1);
-    -ms-transform: rotate(180deg) scaleX(-1);
-    -o-transform: rotate(180deg) scaleX(-1);
+  &__no-apis {
+    font-size: 85%;
+    font-style: italic;
+    white-space: break-spaces;
+  }
+
+  &__item {
+    padding: 0.2rem 0;
   }
 }

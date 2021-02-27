@@ -1,75 +1,60 @@
 .button {
-  border: 1px solid $color-transparent;
+  border: 0.063rem solid $color-transparent;
   box-shadow: none;
   background-color: $color-transparent;
-  font-size: 80%;
-  padding: 5px;
-  margin: 5px;
-
-  &:focus {
-    outline: none;
-  }
+  font-size: 90%;
+  padding: 0.3rem;
+  display: flex;
+  justify-content: center;
+  min-width: 3rem;
+  border-radius: 0.3rem;
+  -webkit-border-radius: 0.3rem;
+  -moz-border-radius: 0.3rem;
+  -ms-border-radius: 0.3rem;
+  -o-border-radius: 0.3rem;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  text-align: center;
+  cursor: pointer;
 
   &:hover {
-    cursor: pointer;
-    border-bottom: 1px solid $color-yellow;
-  }
-
-  &--active {
-    color: $color-yellow;
-    border-bottom: 1px solid $color-yellow;
+    background-color: rgba($color-highlight, 0.7);
     font-weight: 700;
   }
 
-  &--icon {
-    border: 1px solid $color-yellow;
-    box-shadow: 0 2px 2px $color-shadow;
-    padding: 5px 10px;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    transition: background-color 0.2s;
-    -webkit-transition: background-color 0.2s;
-    -moz-transition: background-color 0.2s;
-    -ms-transition: background-color 0.2s;
-    -o-transition: background-color 0.2s;
+  &--active {
+    color: $color-highlight;
+    border-bottom: 0.125rem solid $color-highlight;
+    font-weight: 700;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 
     &:hover {
-      background-color: $color-yellow;
-      opacity: 0.8;
+      color: $color-white;
+      font-weight: 700;
+      opacity: 0.7;
+      border-bottom-left-radius: 0.3rem;
+      border-bottom-right-radius: 0.3rem;
     }
+  }
+
+  &--icon {
+    border: 0.063rem solid $color-highlight;
+    box-shadow: 0 0.125rem 0.125rem $color-shadow;
+    padding: 0.5rem;
+    min-width: 1rem;
   }
 
   &--small {
     height: 5%;
     width: 10%;
-    font-weight: normal;
-    padding: 5px 10px;
-
-    &:focus {
-      outline: none;
-      border: 1px solid $color-yellow;
-      border-radius: 10px;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
-      -o-border-radius: 10px;
-    }
-
-    &:hover {
-      background-color: $color-yellow;
-      border-radius: 10px;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
-      -o-border-radius: 10px;
-    }
+    padding: 0.3rem 0.625rem;
+    background-color: $color-highlight;
+    opacity: 0.7;
+    border: 0.063rem solid $color-highlight;
   }
 
-  &__icon {
-    vertical-align: middle;
-    color: $color-font;
-  }
 }

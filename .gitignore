@@ -1,3 +1,7 @@
 node_modules
-nodemon.*
-./Backend/nodemon.json
+/dist
+
+# local env files
+.env.local
+.env.*.local
+.env*

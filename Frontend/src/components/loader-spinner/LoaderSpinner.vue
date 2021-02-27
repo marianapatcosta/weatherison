@@ -1,9 +1,6 @@
 <template>
-  <div class="loader__overlay" :class="{ 'loader__overlay--dark': isDarkMode }">
-    <div
-      class="loader__spinner"
-      :class="{ 'loader__spinner--dark': isDarkMode }"
-    ></div>
+  <div class="loader__overlay">
+    <div class="loader__spinner"></div>
   </div>
 </template>
 

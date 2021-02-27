@@ -8,7 +8,8 @@ export default class ToggleSwitch extends Vue {
   @Prop() private checked!: boolean;
   @Prop() private disabled!: boolean;
 
-  private handleToggle(event: any) {
-    this.$emit("toggle", event.target.checked);
+  private handleToggle(event: Event) {
+    const target = event.target as HTMLInputElement;
+    this.$emit("toggle", target.checked);
   }
 }
