@@ -16,7 +16,9 @@ const app: Application = express();
 app.disable('x-powered-by');
 
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
+  const allowedOrigins = ["http://localhost:8080", "https://weatherison.web.app"]
+  const origin = req.headers.origin;
+  allowedOrigins.indexOf(origin) > -1 && res.setHeader("Access-Control-Allow-Origin", origin);
   res.setHeader(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
