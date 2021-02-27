@@ -1,0 +1,44 @@
+@mixin loading-item {
+  overflow: hidden;
+  position: relative;
+  background-color: $color-disabled;
+  opacity: 0.5;
+  border-radius: 0.3rem;
+  -webkit-border-radius: 0.3rem;
+  -moz-border-radius: 0.3rem;
+  -ms-border-radius: 0.3rem;
+  -o-border-radius: 0.3rem;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      $color-disabled,
+      #ddd,
+      $color-disabled
+    );
+    animation: loading 1s infinite linear;
+    -webkit-animation: loading 1s infinite linear;
+  }
+}
+
+
+@keyframes loading {
+  0% {
+    transform: translateX(0);
+  }
+  50%,
+  100% {
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+  }
+}
+

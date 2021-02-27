@@ -1,19 +1,28 @@
 {
-  "message": "hello i18n !!",
+  "card": {
+    "clickCard": "Click to see details of {api} forecast"
+  },
   "header": {
-    "locationPlaceholder": "location and country",
+    "geolocationError": "Geolocation is not supported by the browser!",
+    "locationPlaceholder": "Type city and country",
+    "toggleMenu": "toggle menu",
+    "togglePreferences": "toggle settings",
+    "wordsToDelete": ["Region", "District", "Municipality"],
     "yourLocation": "your location"
   },
   "preferences": {
-    "temperatureUnit": "temperature unit",
-    "language": "language",
-    "darkMode": "dark mode",
-    "fahrenheit": "°F",
+    "apiSelectionError": "At least one weather forecast should be selected!",
     "celsius": "°C",
     "english": "en",
-    "portuguese": "pt",
+    "fahrenheit": "°F",
+    "language": "language",
+    "noApis": "No weather sources to display",
     "on": "on",
-    "off": "off"
+    "off": "off",
+    "portuguese": "pt",
+    "settings": "Settings",
+    "temperatureUnit": "temperature",
+    "weatherSources": "Weather sources"
   },
   "modal": {
     "errorHeader": "An error occurred",
@@ -21,11 +30,23 @@
   },
   "weatherCard": {
     "apparentTemp": "apparent temperature",
+    "app": "appar",
+    "humidity": "humidity",
+    "moon": "moon phase",
+    "notAvailable": "information not available",
     "precipIntensity": "precipitation intensity",
     "precipProbability": "precipitation probability",
+    "source": "source",
+    "tMax": "maximum temperature",
+    "tMin": "minimum temperature",
+    "uv": "UV radiation",
     "wind": "wind"
   },
   "weatherCompare": {
-    "timesToSelect": ["current", "today", "tomorrow"]
+    "back": "Back",
+    "backAria": "Back to weather comparison",
+    "geolocationError": "Geolocation is not supported by the browser!",
+    "timesToSelect": ["current", "today", "tomorrow"],
+    "weatherError": "Could not get data from {apis}"
   }
 }

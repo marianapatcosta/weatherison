@@ -1,10 +1,10 @@
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 import Checkbox from "@/components/checkbox/Checkbox.vue";
 import Modal from "@/components/modal/Modal.vue";
 import ToggleSwitch from "@/components/toggle-switch/ToggleSwitch.vue";
-import ApisService from "@/services/apis-service";
 import { ApiInfo } from "@/types/api-info.interface";
 import EventBus from "@/EventBus";
+import { LocaleMessage } from "vue-i18n";
 
 @Component({
   components: {
@@ -14,68 +14,76 @@ import EventBus from "@/EventBus";
   }
 })
 export default class UserPreferences extends Vue {
-  @Prop() private header!: string;
-
+  @Prop() private apis!: string[];
   private weatherApis: ApiInfo[] = [];
-  private errorMessage = "";
-  // private isFahrenheit = true;
-  private apisService: ApisService = new ApisService();
-  private $http: any;
+  private errorMessage: string | LocaleMessage = "";
+  private isPt = false;
+  private isFahrenheit = false;
 
   get selectedWeatherApis(): ApiInfo[] {
     return this.weatherApis.filter((api: ApiInfo) => api.selected);
   }
 
   private mounted() {
-    this.fetchApis();
+    this.getLocalStorageConfigs();
   }
 
-  private async fetchApis(): Promise<void> {
-    try {
-      const response: any = await this.apisService.getApis(this.$http);
-      const apis: string[] = response.data;
-      this.weatherApis = apis.map((api: string, index: number) => {
+  @Watch("apis")
+  private setApis() {
+    if (this.apis.length) {
+      const selectedApis = localStorage.selectedApis
+        ? JSON.parse(localStorage.selectedApis)
+        : ["clima-cell", "dark-sky", "open-weather"];
+      this.weatherApis = this.apis.map((api: string) => {
         return {
           name: api,
-          selected: index === 1 || index === 2 || index === 4
+          selected: selectedApis.includes(api)
         };
       });
       this.updateApiSelection();
-    } catch (error) {
-      this.errorMessage = error;
     }
   }
 
-  private handleApiSelection(event: boolean, index: number): void {
+  private getLocalStorageConfigs() {
+    localStorage.isFahrenheit &&
+      this.toggleDegrees(JSON.parse(localStorage.isFahrenheit));
+    localStorage.isPt && this.toggleLanguage(JSON.parse(localStorage.isPt));
+  }
+
+  private handleApiSelection(isChecked: boolean, index: number): void {
     if (
       this.selectedWeatherApis.length === 1 &&
       this.weatherApis[index].selected
     ) {
-      this.errorMessage = "At least one weather forecast should be selected!";
+      this.errorMessage = this.$t("preferences.apiSelectionError");
       return;
     }
-    this.weatherApis[index].selected = event;
+    this.weatherApis[index].selected = isChecked;
     this.updateApiSelection();
   }
 
   private updateApiSelection(): void {
+    localStorage.setItem(
+      "selectedApis",
+      JSON.stringify(this.selectedWeatherApis.map((api) => api.name))
+    );
     EventBus.$emit("selected-apis", this.selectedWeatherApis);
   }
 
-  private closeModal(error: string): void {
-    this.errorMessage = error;
+  private closeModal(): void {
+    this.errorMessage = "";
   }
 
-  private toggleDegrees(event: boolean) {
-    EventBus.$emit("degrees", event);
+  private toggleDegrees(isFahrenheit: boolean) {
+    this.isFahrenheit = isFahrenheit;
+    localStorage.setItem("isFahrenheit", JSON.stringify(isFahrenheit));
+    EventBus.$emit("degrees", isFahrenheit);
   }
 
-  private toggleLanguage(event: boolean) {
-    this.$i18n.locale = event ? "pt" : "en";
+  private toggleLanguage(isPt: boolean) {
+    this.$i18n.locale = isPt ? "pt" : "en";
+    this.isPt = isPt;
+    localStorage.setItem("isPt", JSON.stringify(isPt));
     EventBus.$emit("language", this.$i18n.locale);
-  }
-
-  private toggleDarkMode(event: boolean) {
-    EventBus.$emit("dark-mode", event);
   }
 }

@@ -1,49 +1,43 @@
-import { Component, Vue, Prop } from "vue-property-decorator";
+import { Component, Vue, Ref, Watch } from "vue-property-decorator";
 import Button from "@/components/button/Button.vue";
 import InputField from "@/components/input-field/InputField.vue";
+import Modal from "@/components/modal/Modal.vue";
+import Tooltip from "@/components/tooltip/Tooltip.vue";
+import UserPreferences from "@/components/user-preferences/UserPreferences.vue";
 import { GeolocationParams } from "@/types/geolocation-params.interface";
-import { WeatherForecastTime } from "@/types/weather-forecast-time.enum";
 import EventBus from "../../EventBus";
+import { LocaleMessage } from "vue-i18n";
+import ApisService from "@/services/apis-service";
 
 @Component({
   components: {
     Button,
-    InputField
-  },
-  filters: {
-    location(location: string, lang: string) {
-      let locationArray: string[] = location.split(",");
-      locationArray = locationArray.slice(
-        locationArray.length - 3,
-        locationArray.length
-      );
-      const wordsToDelete =
-        lang === "en"
-          ? ["Region", "District", "Municipality"]
-          : ["Região de", "Distrito de", "Município"];
-      const itemToKeep = lang === "en" ? 0 : 1;
-      wordsToDelete.forEach((word: string) => {
-        locationArray.forEach((item: string, index: number) => {
-          locationArray[index] = item.includes(word)
-            ? item.split(word)[itemToKeep].trim()
-            : item.trim();
-        });
-      });
-      if (locationArray[0] === locationArray[1]) {
-        locationArray.splice(0, 1);
-      }
-      return locationArray.join(", ");
-    }
+    InputField,
+    Modal,
+    Tooltip,
+    UserPreferences
   }
 })
 export default class Header extends Vue {
   private location = "";
-  private selectedLocation = "";
-  /*   private selectedTime = WeatherForecastTime.CURRENT; */
-  private timesToSelect: string[] = Object.values(WeatherForecastTime);
-  private isUserPreferencesVisible = false;
+  private errorMessage: string | LocaleMessage = "";
+  private isUserPreferencesOpened = false;
+  private isMenuOpened = false;
   private lang = "en";
-  private hover = false;
+  private $http: any;
+  private apisService: ApisService = new ApisService();
+  private apis: string[] = [];
+  private showTooltip: string | LocaleMessage = "";
+  private isMainPage = this.$route.name === "WeatherCompare";
+  @Ref("sideMenu") private readonly sideMenu!: HTMLElement;
+  @Ref("hamburgerMenu") private readonly hamburgerMenu!: HTMLElement;
+  @Ref("userPreferences") private readonly userPreferences!: HTMLElement;
+  @Ref("kebabMenu") private readonly kebabMenu!: HTMLElement;
+
+  @Watch("$route")
+  private onRouteChange() {
+    this.isMainPage = this.$route.name === "WeatherCompare";
+  }
 
   private created() {
     this.addEventListeners();
@@ -53,33 +47,69 @@ export default class Header extends Vue {
     this.removeEventListeners();
   }
 
+  private mounted() {
+    this.fetchApis();
+  }
+
+  private async fetchApis(): Promise<void> {
+    try {
+      const response: any = await this.apisService.getApis(this.$http);
+      this.apis = response.data;
+    } catch (error) {
+      this.errorMessage = error;
+    }
+  }
+
+  private handleClickOutsideHamburgerMenu(event: any) {
+    const element: HTMLElement = event.target;
+    if (
+      this.sideMenu &&
+      !this.sideMenu.contains(element) &&
+      !this.hamburgerMenu.contains(element)
+    ) {
+      return (this.isMenuOpened = false);
+    }
+  }
+
+  private handleClickOutsideUserPreferences(event: any) {
+    const element: HTMLElement = event.target;
+    if (
+      this.userPreferences &&
+      !this.userPreferences.contains(element) &&
+      !this.kebabMenu.contains(element)
+    ) {
+      return (this.isUserPreferencesOpened = false);
+    }
+  }
+
   private addEventListeners(): void {
-    EventBus.$on(
-      "selected-location",
-      (selectedLocation: string) => (this.selectedLocation = selectedLocation)
-    );
     EventBus.$on("language", (lang: string) => {
       this.lang = lang;
     });
+    document.addEventListener("click", this.handleClickOutsideHamburgerMenu);
+    document.addEventListener("click", this.handleClickOutsideUserPreferences);
   }
 
   private removeEventListeners(): void {
-    EventBus.$off("selected-location");
     EventBus.$off("language");
+    document.removeEventListener("click", this.handleClickOutsideHamburgerMenu);
+    document.removeEventListener(
+      "click",
+      this.handleClickOutsideUserPreferences
+    );
   }
 
-  private clearLocation(event: string): void {
-    this.location = event;
+  private closeModal(): void {
+    this.errorMessage = "";
   }
 
-  /*   private onSelectTime(time: any) {
-    this.selectedTime = time;
-    EventBus.$emit("select-time", time);
+  private clearLocation(): void {
+    this.location = "";
   }
- */
+
   private defineCurrentPosition() {
     if (!navigator.geolocation) {
-      return alert("Geolocation is not supported by your browser!");
+      this.errorMessage = this.$t("header.geolocationError");
     }
 
     navigator.geolocation.getCurrentPosition((position: any) => {
@@ -99,12 +129,11 @@ export default class Header extends Vue {
     EventBus.$emit("geolocation", geolocationParams);
   }
 
-  private handleUserPreferences(): void {
-    this.isUserPreferencesVisible = !this.isUserPreferencesVisible;
-    this.$emit("user-preferences", this.isUserPreferencesVisible);
+  private toggleIsUserPreferencesOpened(): void {
+    this.isUserPreferencesOpened = !this.isUserPreferencesOpened;
   }
 
-  private fetchFavouriteLocation(): void {
-    return;
+  private toggleIsMenuOpened(): void {
+    this.isMenuOpened = !this.isMenuOpened;
   }
 }

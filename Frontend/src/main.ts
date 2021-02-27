@@ -5,48 +5,51 @@ import router from "./router";
 import i18n from "./i18n";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
+  faBars,
   faBolt,
   faCertificate,
+  faCloudRain,
+  faChevronLeft,
   faCircle,
-  faSearchLocation,
   faEllipsisV,
+  faMoon,
+  faSearchLocation,
   faStar,
   faSun,
-  faWind,
-  faUmbrella,
-  faTimes,
-  faTint,
-  faCloudRain,
   faTemperatureHigh,
   faTemperatureLow,
-  faThermometerHalf
+  faThermometerHalf,
+  faTimes,
+  faTint,
+  faUmbrella,
+  faWind
 } from "@fortawesome/free-solid-svg-icons";
 import { faStar as faStarReg } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 library.add(
+  faBars,
   faBolt,
+  faCertificate,
+  faChevronLeft,
+  faCloudRain,
   faCircle,
-  faSearchLocation,
   faEllipsisV,
+  faMoon,
+  faSearchLocation,
   faStar,
   faStarReg,
-  faCertificate,
-  faWind,
-  faUmbrella,
-  faTimes,
   faSun,
-  faTint,
-  faCloudRain,
   faTemperatureHigh,
   faTemperatureLow,
-  faThermometerHalf
+  faThermometerHalf,
+  faTimes,
+  faTint,
+  faUmbrella,
+  faWind
 );
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
-
-import darkModeMixin from "@/mixins/dark-mode.mixin";
-Vue.mixin(darkModeMixin);
 
 /* Vue.directive("click-outside", {
   bind(el: any, binding: any, vnode: any) {
@@ -89,7 +92,7 @@ Vue.use({
 });
 
 new Vue({
-  render: h => h(App),
+  render: (h) => h(App),
   i18n,
   router
 }).$mount("#app");

@@ -1,43 +1,32 @@
 <template>
-  <div class="toggle-switch__wrapper">
-    <label
-      class="toggle-switch"
-      :class="{ 'toggle-switch--with-label': label }"
-    >
+  <label
+    class="toggle-switch"
+    :class="{
+      'toggle-switch--with-label': label,
+      'toggle-switch--disabled': disabled,
+    }"
+  >
+    {{ label }}
+    <input
+      class="toggle-switch__input"
+      type="checkbox"
+      :checked="checked"
+      :disabled="disabled"
+      @change="handleToggle"
+    />
+    <span class="toggle-switch__slider">
       <span
-        v-if="label"
         class="toggle-switch__label"
-        :class="{ 'toggle-switch__label--disabled': disabled }"
-        >{{ label }}</span
+        :class="{ 'toggle-switch__label--hidden': !checked }"
+        >{{ leftLabel }}</span
       >
-      <input
-        class="toggle-switch__input"
-        type="checkbox"
-        :checked="checked"
-        :disabled="disabled"
-        @click="handleToggle"
-      />
       <span
-        class="toggle-switch__slider"
-        :class="{
-          'toggle-switch__slider--disabled': disabled,
-          'toggle-switch__slider--dark': isDarkMode
-        }"
+        class="toggle-switch__label"
+        :class="{ 'toggle-switch__label--hidden': checked }"
+        >{{ rightLabel }}</span
       >
-        <span
-          class="toggle-switch__label toggle-switch__label-left"
-          :class="{ 'toggle-switch__label--disabled': disabled }"
-          >{{ leftLabel }}</span
-        >
-
-        <span
-          class="toggle-switch__label toggle-switch__label-right"
-          :class="{ 'toggle-switch__label--disabled': disabled }"
-          >{{ rightLabel }}</span
-        >
-      </span>
-    </label>
-  </div>
+    </span>
+  </label>
 </template>
 <script src="./ToggleSwitch.ts"></script>
 

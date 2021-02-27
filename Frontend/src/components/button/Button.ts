@@ -7,10 +7,8 @@ export default class Button extends Vue {
   @Prop() private disabled!: boolean;
   @Prop() private small!: boolean;
   @Prop() private active!: boolean;
-  // @Prop() private styleType!: string;
   @Prop() private secondary!: boolean;
   @Prop() private icon!: string;
-
   private handleOnClick(): void {
     this.$emit("click");
   }

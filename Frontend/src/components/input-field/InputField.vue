@@ -1,22 +1,21 @@
 <template>
-  <div class="input">
+  <div class="input" >
     <!-- v-model="value" -->
     <input
       class="input__field"
-      :class="{ 'input__field--dark': isDarkMode }"
       type="name"
       :value="value"
       :placeholder="placeholder"
       @input="handleInput"
-      @keyup.enter="handleBlur"
+      @keydown.enter="handleBlur"
       ref="inputLocation"
     />
     <span
+      v-if="value"
       class="input__icon"
-      :class="{ input__icon: isDarkMode }"
-      v-if="value !== ''"
       @click="handleClear"
-    >x</span>
+      >x</span
+    >
   </div>
 </template>
 

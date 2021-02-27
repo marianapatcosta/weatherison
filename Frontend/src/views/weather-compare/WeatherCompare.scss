@@ -3,29 +3,64 @@
   width: 100vw;
   height: auto;
 
+  &__cards {
+    margin: 1.25rem auto;
+    padding: 0.625rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    & > div {
+      margin: 0 0.625rem 1.5rem 0.625rem;
+    }
+  }
+
+  &__date {
+    font-size: 85%;
+    font-weight: 700;
+    margin: 0.625rem auto;
+    width: fit-content;
+  }
+
   &__spacer {
-    padding: 20px;
+    padding: 1.2rem;
     width: 100%;
-    height: 80px;
+    height: 5rem;
   }
 
   &__header {
-    text-align: center;
-    margin-top: 15px;
+    position: relative;
+  }
+
+  &__link {
+    position: absolute;
+    top: 0;
+    left: 1.875rem;
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-highlight;
+    }
   }
 
   &__heading {
-    margin-right: 10px;
+    text-align: center;
     font-family: $font-emphasis;
-    display: inline;
+    font-size: 130%;
+    margin: 2rem 0 1rem;
   }
 
   &__nav {
-    display: inline-block;
-    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &--button {
       font-size: 95%;
+      margin: 0 0.3rem;
     }
   }
 }

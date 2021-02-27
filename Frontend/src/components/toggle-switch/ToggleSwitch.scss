@@ -1,110 +1,100 @@
-.toggle-switch__wrapper {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
 .toggle-switch {
-  width: 65px;
-  margin: 5px;
-  vertical-align: top;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 90%;
+  padding: 0 0.125rem;
+  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
 
   &--with-label {
     width: 100%;
-    display: flex;
     justify-content: space-between;
-    align-content: center;
-    margin: 5px 0;
+    margin: 0.3rem 0;
+  }
+
+  &--disabled {
+    color: $color-disabled;
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: default;
   }
 
   &__label {
-    font-size: 75%;
-    line-height: 15px;
-    padding: 0 2px;
-    vertical-align: middle;
+    font-size: 80%;
+    line-height: 0.75rem;
+    padding: 0 0.125rem;
+    align-self: center;
+    white-space: nowrap;
 
-    &:hover {
-      cursor: pointer;
+    &--hidden {
+      visibility: hidden;
     }
-
-    &--disabled {
-      color: $color-disabled;
-
-      &:hover {
-        cursor: default;
-      }
-    }
-  }
-
-  &__label-left {
-    float: left;
-    font-size: 70%;
-  }
-
-  &__label-right {
-    float: right;
-    font-size: 70%;
   }
 
   &__input {
     opacity: 0;
     width: 0;
     height: 0;
+
+    // when focus, adds a border to its sibling StyledCheckboxToggle
+    &:focus + .toggle-switch__slider {
+      outline: 0.063rem solid $color-highlight;
+    }
+
+    &:focus:not(:focus-visible) + .toggle-switch__slider {
+      outline: none;
+    }
   }
 
   &__slider {
-    display: inline-block;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
     background-color: $color-secondary;
-    border-radius: 34px;
-    cursor: pointer;
-    height: 18px;
-    width: 45px;
+    height: 1rem;
+    width: 2.4rem;
+    line-height: 85%;
     position: relative;
-    padding: 2px;
+    padding: 0.125rem 0.2rem;
+    margin-right: 0.625rem;
     transition: 0.4s;
     -webkit-transition: 0.4s;
-    vertical-align: middle;
+    border-radius: 2rem;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -ms-border-radius: 2rem;
+    -o-border-radius: 2rem;
 
     &:hover {
-      box-shadow: 0 0 0 1px $color-yellow;
+      box-shadow: 0 0 0 0.063rem $color-highlight;
+      opacity: 0.75;
     }
 
     &:before {
-      background-color: $color-yellow;
-      border-radius: 50%;
-      box-shadow: 0 2px 2px $color-yellow;
+      background-color: $color-highlight;
+      box-shadow: 0 0.125rem 0.125rem $color-highlight;
       content: "";
-      height: 21px;
-      width: 21px;
-      left: 0;
-      bottom: 0px;
+      height: 1.25rem;
+      width: 1.25rem;
+      min-width: 1.25rem;
+      left: -0.3rem;
+      bottom: 0;
       position: absolute;
       transition: 0.4s;
       -webkit-transition: 0.4s;
+      border-radius: 50%;
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       -ms-border-radius: 50%;
       -o-border-radius: 50%;
     }
-
-    &--disabled {
-      border: 1px solid $color-disabled;
-      opacity: 0.3;
-
-      &:before {
-        background-color: $color-disabled;
-        opacity: 0.8;
-      }
-
-      &:hover {
-        cursor: default;
-      }
-    }
-
-    &--dark {
-      background-color: $color-secondary-dark;
-    }
   }
+
   &__input:checked + &__slider {
     background-color: $color-blue;
   }
@@ -114,14 +104,14 @@
   }
 
   &__input:focus + &__slider {
-    box-shadow: 0 0 1px;
+    box-shadow: 0 0 0.063rem;
   }
 
   &__input:checked + &__slider:before {
-    transform: translateX(29px);
-    -webkit-transform: translateX(29px);
-    -ms-transform: translateX(29px);
-    -moz-transform: translateX(29px);
-    -o-transform: translateX(29px);
-  }
+    transform: translateX(1.6rem);
+    -webkit-transform: translateX(1.6rem);
+    -ms-transform: translateX(1.6rem);
+    -moz-transform: translateX(1.6rem);
+    -o-transform: translateX(1.6rem);
+}
 }

@@ -4,22 +4,23 @@ import { Component, Prop, Ref, Vue } from "vue-property-decorator";
 export default class InputField extends Vue {
   @Prop() private placeholder!: string;
   @Prop() private value!: string;
-  // @Model("input", { type: String }) private readonly value!: string;
   @Ref("inputLocation") private readonly inputLocation!: HTMLButtonElement;
   private inputValue = this.value;
 
-  private handleInput(event: any) {
-    this.$emit("input", event.target.value);
+  private handleInput(event: Event) {
+    const target = event.target as HTMLInputElement;
+    this.$emit("input", target.value);
   }
 
-  private handleBlur(event: any) {
-    this.$emit("blur", event.target.value);
-    event.target.blur();
-    event.target.value = "";
+  private handleBlur(event: Event) {
+    const target = event.target as HTMLInputElement;
+    this.$emit("blur", target.value);
+    target.blur();
+    target.value = "";
     this.handleInput(event);
   }
 
-  private handleClear(event: any) {
+  private handleClear(event: Event) {
     this.$emit("clear", "");
     this.inputLocation.focus();
   }

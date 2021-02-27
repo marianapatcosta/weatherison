@@ -1,17 +1,27 @@
 <template>
   <div class="modal">
     <div class="modal__overlay">
-      <div class="modal__content" :class="{ 'modal__content--dark': isDarkMode }" ref="modal">
+      <div
+        class="modal__content"
+        ref="modal"
+      >
         <header class="modal__header">
           <h4 class="modal__header--title">{{ header }}</h4>
-          <font-awesome-icon icon="times" class="modal__header--close" @click="$emit('clear')" />
+          <span
+            class="modal__header--close"
+            role="button"
+            tabIndex="0"
+            @click="$emit('clear')"
+            @keydown="$emit('clear')"
+            ><font-awesome-icon icon="times"
+          /></span>
         </header>
         <main>
           <p class="modal__body">{{ message }}</p>
         </main>
         <footer class="modal__footer">
           <Button
-            ref="focusedButton"
+            ref="button"
             type="button"
             :label="label"
             :small="true"
