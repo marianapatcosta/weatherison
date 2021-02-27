@@ -61,8 +61,9 @@ export const moonPhase = (phase: string) => {
   if (phase === undefined) {
     return "-";
   }
-  if (phase.match(/[A-Z][a-z]+/g)?.length >= 2) {
-    return phase.match(/[A-Z][a-z]+/g)?.join(' ').toLowerCase();
+  const upperCaseMatch =  phase?.match(/[A-Z][a-z]+/g);
+  if (upperCaseMatch && upperCaseMatch?.length >= 2) {
+    return upperCaseMatch.join(" ").toLowerCase();
   }
   return phase.toLowerCase().replace(/[-_.]/g, " ");
 };

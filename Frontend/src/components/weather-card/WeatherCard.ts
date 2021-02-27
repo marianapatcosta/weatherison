@@ -1,8 +1,8 @@
 import { Component, Vue, Prop } from "vue-property-decorator";
+import { LocaleMessage } from "vue-i18n";
 import Tooltip from "@/components/tooltip/Tooltip.vue";
 import WeatherInfo from "@/models/weather-info";
 import EventBus from "@/EventBus";
-import { LocaleMessage } from "vue-i18n";
 import {
   temperatureUnits,
   windUnits,
@@ -10,6 +10,7 @@ import {
   moonPhase,
   uvValue
 } from "@/utils/filters";
+import Apis from "@/types/apis.enum";
 
 @Component({
   components: {
@@ -39,17 +40,17 @@ export default class WeatherCard extends Vue {
   private attributeIcon(apiName: string, icon: string): string {
     try {
       switch (apiName) {
-        case "accuweather":
+        case Apis.ACCUWEATHER:
           return require(`@/assets/weather-icons/${apiName}/${icon}.png`);
-        case "clima-cell":
+        case Apis.CLIMA_CELL:
           return require(`@/assets/weather-icons/${apiName}/${icon}.svg`);
-        case "dark-sky":
+        case Apis.DARK_SKY:
           return require(`@/assets/weather-icons/${apiName}/${icon}.svg`);
-        case "ipma":
+        case Apis.IPMA:
           return require(`@/assets/weather-icons/error.svg`);
-        case "open-weather":
+        case Apis.OPEN_WEATHER:
           return `http://openweathermap.org/img/wn/${icon}.png`;
-        case "weather-bit":
+        case Apis.WEATHER_BIT:
           return require(`@/assets/weather-icons/${apiName}/${icon}.png`);
         default:
           return require(`@/assets/weather-icons/error.svg`);
