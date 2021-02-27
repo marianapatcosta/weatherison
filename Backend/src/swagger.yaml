@@ -1,0 +1,198 @@
+openapi: 3.0.0
+info:
+  title: Weatherison API
+  description: API to fetch weather forecast information from 6 different providers
+  version: 1.0.0
+servers:
+  - url: http://localhost:8000
+    description: Development server
+  - url: https://weatherison.herokuapp.com
+    description: Production serve
+paths:
+  /api/v1/apis:
+    get:
+      summary: available apis
+      description: This API retrieves all the weather forecast providers from whom the user can get information
+      responses:
+        '200':   
+          description: A list of available apis
+          content:
+            application/json:
+              schema: 
+                type: array
+                items:
+                  type: string
+                  description: api name/ identification
+                  example: ipma
+  /api/v1/weather:
+    get:
+      summary: weather forecast
+      description: This API retrieves the weather forecast for the different apis that are supported, as per GET '/api/v1/apis' response
+      parameters:
+        - in: query
+          name: apiName
+          schema:
+            type: string
+          required: true
+          description: name of api from which fetch weather forecast
+          example: ipma
+        - in: query
+          name: lang
+          schema:
+            type: string
+            default: en
+          example: en
+          required: false
+          description: language in which the weather forecast should be fetched
+        - in: query
+          name: latitude
+          schema:
+            type: float
+          example: 41.5532
+          required: false
+          description: latitude of the place to fetch weather forecast
+        - in: query
+          name: longitude
+          schema:
+            type: float
+          example: -8.4183
+          required: false
+          description: longitude of the place to fetch weather forecast
+        - in: query
+          name: location
+          schema:
+            type: string
+          example: Braga, Distrito de Braga, Portugal
+          required: false
+          description: location to fetch weather forecast
+      responses:
+        '200':   
+          description: weather forecast information for the specified place fetched from the specified api
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/WeatherResponse'
+components:
+  schemas:
+    WeatherResponse:
+      type: object
+      properties:
+        forecast:
+          $ref: '#/components/schemas/Forecast'
+          description: An object containing weather forecast for 5 days for the specified place fetched from the specified api
+        latitude:
+          type: float
+          description: latitude of the place to fetch weather forecast
+          example: 41.5532
+        longitude:
+          type: float
+          description: longitude of the place to fetch weather forecast
+          example: -8.4183
+        location:
+          type: string
+          description: location to fetch weather forecast
+          example: Braga, Distrito de Braga, Portugal
+    Forecast:
+      type: object
+      properties:
+        lang:
+          type: string
+          description: language in which the weather forecast should be fetched
+          example: en
+        name:
+          type: string
+          description: name of api from which fetch weather forecast
+          example: ipma
+        current: 
+          description: weather forecast now
+          $ref: '#/components/schemas/WeatherResponse'
+        today: 
+          description: weather forecast for the present day
+          $ref: '#/components/schemas/WeatherResponse'
+        tomorrow: 
+          description: weather forecast for the next day
+          $ref: '#/components/schemas/WeatherResponse'
+        in2Days: 
+          description: weather forecast for 2 days from now
+          $ref: '#/components/schemas/WeatherResponse'
+        in3Days: 
+          description: weather forecast for 3 days from now
+          $ref: '#/components/schemas/WeatherResponse'
+        in4Days: 
+          description: weather forecast for 4 days from now
+          $ref: '#/components/schemas/WeatherResponse'
+    WeatherResponse:
+      type: object
+      properties:
+        time:
+          type: integer
+          description: Time of weather forecast, in milliseconds
+          example: 1614470400000
+        description:
+          type: string
+          description: A description for the weather forecast
+          example: sunny
+        humidity:
+          oneOf:
+            type: float
+            type: string
+          description: humidity, in percentage
+          example: 58
+        icon:
+          type: string
+          description: A string indicating the icon that represents the weather forecast
+          example: clear-day
+        lang:
+          type: string
+          description: language in which the weather forecast should be fetched
+          example: en
+        moonPhase:
+          type: string
+          description: moon phase
+          example: full moon
+        temperatureMax:
+          type: float
+          description: maximum temperature, in Celsius degrees
+          example: 18.88
+        temperatureMin:
+          type: float
+          description: minimum temperature, in Celsius degrees
+          example: 10.6
+        temperature:
+          type: float
+          description: current temperature, in Celsius degrees
+          example: 18.88
+        apparentTemperature:
+          type: integer
+          description: current temperature considering human perception, in Celsius degrees
+          example: 10.6
+        precipitationIntensity:
+          type: float
+          description: intensity of precipitation, in percentage
+          example: 1
+        precipitationProbability:
+          type: float
+          description: probability of precipitation, in percentage
+          example: 1
+        windDirection:
+          type: string
+          description: wind direction, in cardinal points
+          example: E
+        windSpeed:
+          oneOf:
+            type: float
+            type: string
+          description: wind speed, in meters per second
+          example: 2.93
+        uvIndex:
+          type: float
+          description: maximum UV radiation
+          example: 4
+        sunrise:
+          type: integer
+          description: time of sunrise, in milliseconds
+          example: 1614496260
+        sunset:
+          type: integer
+          description: time of sunset, in milliseconds
+          example: 1614536700

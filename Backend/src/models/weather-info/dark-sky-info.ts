@@ -7,7 +7,7 @@ import {
 export default class DarkSkyInfo extends WeatherInfo {
   constructor(weatherData, private lang: string) {
     super(
-      weatherData.time,
+      weatherData.time * 1000,
       weatherData.summary,
       weatherData.precipIntensity,
       weatherData.precipProbability,
@@ -21,8 +21,8 @@ export default class DarkSkyInfo extends WeatherInfo {
       weatherData.temperatureMin,
       weatherData.uvIndex,
       moonLunationFractionToMoonPhase(weatherData.moonPhase, lang),
-      weatherData.sunriseTime,
-      weatherData.sunsetTime
+      weatherData.sunriseTime * 1000,
+      weatherData.sunsetTime * 1000
     );
   }
 }

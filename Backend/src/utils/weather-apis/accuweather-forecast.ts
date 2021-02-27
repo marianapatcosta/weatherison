@@ -24,15 +24,16 @@ export default async (
   ];
 
   try {
-    const responseArray = await Promise.all(
+    const [current, daily] = await Promise.all(
       urls.map(async (url) => {
         const response = await axios.get(url);
         return response.data;
       })
     );
+    
     const fullResponse = {
-      current: responseArray[0],
-      daily: responseArray[1].DailyForecasts,
+      current,
+      daily: daily.DailyForecasts,
     };
     return new AccuweatherResponse(apiName, fullResponse);
   } catch (error) {

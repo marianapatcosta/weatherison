@@ -1,17 +1,4 @@
 const getPrecipitationIntensity = (code: number, lang: string): string => {
-  /*  switch (code) {
-    case 0:
-      return lang === "pt" ? "Sem precipitação" : "No precipitation";
-    case 1:
-      return lang === "pt" ? "Fraca" : "Light";
-    case 2:
-      return lang === "pt" ? "Moderada" : "Moderate";
-    case 3:
-      return lang === "pt" ? "Forte" : "Heavy";
-    default:
-      return "-";
-  } */
-
   const cases = {
     0: lang === "pt" ? "Sem precipitação" : "No precipitation",
     1: lang === "pt" ? "Fraca" : "Light",
@@ -23,19 +10,6 @@ const getPrecipitationIntensity = (code: number, lang: string): string => {
 };
 
 const getWindSpeed = (code: number, lang: string): string => {
-  /*  switch (code) {
-    case 1:
-      return lang === "pt" ? "Fraco" : "Weak";
-    case 2:
-      return lang === "pt" ? "Moderado" : "Moderate";
-    case 3:
-      return lang === "pt" ? "Forte" : "Strong";
-    case 4:
-      return lang === "pt" ? "Muito forte" : "Very strong";
-    default:
-      return "-";
-  } */
-
   const cases = {
     1: lang === "pt" ? "Fraco" : "Weak",
     2: lang === "pt" ? "Moderado" : "Moderate",

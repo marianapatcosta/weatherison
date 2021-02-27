@@ -25,15 +25,15 @@ export default async (
   ];
 
   try {
-    const responseArray = await Promise.all(
+    const [current, daily] = await Promise.all(
       urls.map(async (url) => {
         const response = await axios.get(url);
         return response.data;
       })
     );
     const fullResponse = {
-      current: responseArray[0].data,
-      daily: responseArray[1].data,
+      current: current.data,
+      daily: daily.data,
     };
 
     return new WeatherBitResponse(apiName, fullResponse, lang);

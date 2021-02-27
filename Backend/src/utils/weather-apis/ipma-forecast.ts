@@ -21,7 +21,7 @@ export default async (
   try {
     const response: any = await axios.get(url);
     const responseData: any = response.data;
-    return new IpmaResponse(apiName, responseData["data"], lang);
+    return new IpmaResponse(apiName, responseData.data, lang);
   } catch (error) {
     throw new HttpError(
       error.message || CONNECTION_ERROR("weather"),
