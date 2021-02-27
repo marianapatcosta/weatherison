@@ -1,10 +1,11 @@
 import { Component, Prop, Vue, Watch } from "vue-property-decorator";
+import { LocaleMessage } from "vue-i18n";
 import Checkbox from "@/components/checkbox/Checkbox.vue";
 import Modal from "@/components/modal/Modal.vue";
 import ToggleSwitch from "@/components/toggle-switch/ToggleSwitch.vue";
 import { ApiInfo } from "@/types/api-info.interface";
 import EventBus from "@/EventBus";
-import { LocaleMessage } from "vue-i18n";
+import Apis from "@/types/apis.enum";
 
 @Component({
   components: {
@@ -33,7 +34,7 @@ export default class UserPreferences extends Vue {
     if (this.apis.length) {
       const selectedApis = localStorage.selectedApis
         ? JSON.parse(localStorage.selectedApis)
-        : ["clima-cell", "dark-sky", "open-weather"];
+        : [Apis.CLIMA_CELL, Apis.DARK_SKY, Apis.OPEN_WEATHER];
       this.weatherApis = this.apis.map((api: string) => {
         return {
           name: api,
@@ -45,9 +46,12 @@ export default class UserPreferences extends Vue {
   }
 
   private getLocalStorageConfigs() {
-    localStorage.isFahrenheit &&
+    if (localStorage.isFahrenheit) {
       this.toggleDegrees(JSON.parse(localStorage.isFahrenheit));
-    localStorage.isPt && this.toggleLanguage(JSON.parse(localStorage.isPt));
+    }
+    if (localStorage.isPt) {
+      this.toggleLanguage(JSON.parse(localStorage.isPt));
+    }
   }
 
   private handleApiSelection(isChecked: boolean, index: number): void {
