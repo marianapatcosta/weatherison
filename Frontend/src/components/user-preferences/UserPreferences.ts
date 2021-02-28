@@ -31,7 +31,7 @@ export default class UserPreferences extends Vue {
 
   @Watch("apis")
   private setApis() {
-    if (this.apis.length) {
+    if (this.apis?.length) {
       const selectedApis = localStorage.selectedApis
         ? JSON.parse(localStorage.selectedApis)
         : [Apis.CLIMA_CELL, Apis.DARK_SKY, Apis.OPEN_WEATHER];

@@ -19,7 +19,10 @@
           </div>
         </div>
 
-        <div v-if="!isLoading" class="weather-compare__cards">
+        <div
+          v-if="!isLoading && weatherInfoForSelectedTime.length"
+          class="weather-compare__cards"
+        >
           <WeatherCard
             v-for="(weatherData, index) in weatherInfoForSelectedTime"
             :key="index + Math.random()"
@@ -30,6 +33,14 @@
             :isClickable="true"
             @click="handleCardClick(index)"
           />
+        </div>
+
+        <div
+          v-else-if="showNoData"
+          class="weather-compare--not-available"
+        >
+          <img :src="require(`@/assets/weather-icons/error.svg`)" />
+          <div>{{ $t("weatherCard.notAvailable") }}</div>
         </div>
         <div v-else class="weather-compare__cards">
           <WeatherCardPlaceholder

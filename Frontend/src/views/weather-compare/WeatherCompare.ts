@@ -39,6 +39,7 @@ export default class WeatherCompare extends Vue {
   private activeButton = 0;
   private isFahrenheit = false;
   private showDetails = false;
+  private showNoData = false;
   private weatherDetailsData: WeatherInfo[] = [];
   private apiForDetails = "";
 
@@ -158,6 +159,7 @@ export default class WeatherCompare extends Vue {
 
   private async fetchWeatherForecast(): Promise<void> {
     this.isLoading = true;
+    this.showNoData = false;
     try {
       const responses = await Promise.allSettled(
         this.selectedWeatherApis.map(async (api) => {
@@ -189,6 +191,7 @@ export default class WeatherCompare extends Vue {
       this.getRejectedApis(responses);
     } catch (error) {
       this.errorMessage = error;
+      this.showNoData = true;
     } finally {
       this.isLoading = false;
     }

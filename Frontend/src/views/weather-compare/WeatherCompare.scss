@@ -3,6 +3,19 @@
   width: 100vw;
   height: auto;
 
+  &--not-available {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+
+    & > img {
+      width: 10rem;
+      height: 10rem;
+    }
+  }
+
   &__cards {
     margin: 1.25rem auto;
     padding: 0.625rem;
