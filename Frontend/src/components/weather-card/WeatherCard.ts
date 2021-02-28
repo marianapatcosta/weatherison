@@ -49,7 +49,7 @@ export default class WeatherCard extends Vue {
         case Apis.IPMA:
           return require(`@/assets/weather-icons/error.svg`);
         case Apis.OPEN_WEATHER:
-          return `http://openweathermap.org/img/wn/${icon}.png`;
+          return `https://openweathermap.org/img/wn/${icon}.png`;
         case Apis.WEATHER_BIT:
           return require(`@/assets/weather-icons/${apiName}/${icon}.png`);
         default:
