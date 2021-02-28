@@ -1,12 +1,12 @@
 import express, { Application, Request, Response, NextFunction } from "express";
-const swaggerUI = require("swagger-ui-express");
-const YAML = require("yamljs");
-const swaggerDocument = YAML.load('./src/swagger.yaml');
+import swaggerUI from "swagger-ui-express";
+import YAML from "yamljs";
 import HttpError from "./models/http-error";
 import HttpStatusCode from "./utils/http-status-code.enum";
 import apisRoutes from "./routes/apis-routes";
 import weatherRoutes from "./routes/weather-routes";
 import constants from "./utils/constants";
+const swaggerDocument = YAML.load('./src/swagger.yaml');
 
 const { GENERAL_ERROR, ROUTE_NOT_FOUND_ERROR }: Readonly<any> = constants;
 const DEFAULT_PORT: number = 8000;
