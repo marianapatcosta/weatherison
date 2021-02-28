@@ -28,7 +28,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/api/v1/docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+process.env.NODE_ENV === 'development' && app.use("/api/v1/docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 app.use("/api/v1/apis", apisRoutes);
 app.use("/api/v1/weather", weatherRoutes);
 
@@ -47,5 +47,5 @@ app.use((error: HttpError, req: Request, res: Response, next: NextFunction) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server is up on port ${port}.`);
+ // console.log(`Server is up on port ${port}.`);
 });

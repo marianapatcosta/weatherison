@@ -1,0 +1,28 @@
+[debug] [2021-02-28T14:35:46.967Z] ----------------------------------------------------------------------
+[debug] [2021-02-28T14:35:46.970Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Mariana Costa\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-02-28T14:35:46.970Z] CLI Version:   9.5.0
+[debug] [2021-02-28T14:35:46.970Z] Platform:      win32
+[debug] [2021-02-28T14:35:46.971Z] Node Version:  v14.15.5
+[debug] [2021-02-28T14:35:46.972Z] Time:          Sun Feb 28 2021 14:35:46 GMT+0000 (Hora padrão da Europa Ocidental)
+[debug] [2021-02-28T14:35:46.972Z] ----------------------------------------------------------------------
+[debug] [2021-02-28T14:35:46.972Z] 
+[debug] [2021-02-28T14:35:46.979Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-02-28T14:35:46.979Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Mariana Costa\MyProjects\weather-comparison-app
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
