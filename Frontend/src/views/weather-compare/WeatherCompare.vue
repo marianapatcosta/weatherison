@@ -4,9 +4,10 @@
       <div class="weather-compare__spacer">&nbsp;</div>
       <div>
         <div class="weather-compare__header">
-          <h1 class="weather-compare__heading">
+          <h1 v-if="selectedLocation" class="weather-compare__heading">
             {{ selectedLocation | location }}
           </h1>
+          <div v-else class="weather-compare__heading--placeholder" />
           <div class="weather-compare__nav">
             <Button
               v-for="(time, index) in $t('weatherCompare.timesToSelect')"
