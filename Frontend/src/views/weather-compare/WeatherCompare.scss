@@ -1,3 +1,5 @@
+@import "../../assets/styles/mixins.scss";
+
 .weather-compare {
   background-color: $color-primary;
   width: 100vw;
@@ -17,7 +19,7 @@
   }
 
   &__cards {
-    margin: 1.25rem auto;
+    margin: 1rem auto;
     padding: 0.625rem;
     display: flex;
     align-items: center;
@@ -42,7 +44,7 @@
     height: 5rem;
 
     &--large {
-      height: 7rem;
+      height: 6rem;
     }
   }
 
@@ -72,6 +74,13 @@
     font-family: $font-emphasis;
     font-size: 130%;
     min-height: 1.7rem;
+
+    &--placeholder {
+      width: 35%;
+      margin: 0 auto;
+      height: 1.4rem;
+      @include loading-item;
+    }
   }
 
   &__nav {
@@ -82,6 +91,27 @@
     &--button {
       font-size: 95%;
       margin: 0 0.3rem;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .weather-compare {
+    &__heading {
+      &--placeholder {
+        width: 20%;
+        height: 1.7rem;
+      }
+    }
+
+    &__spacer {
+      &--large {
+        height: 7rem;
+      }
+    }
+
+    &__cards {
+      margin: 1.25rem auto;
     }
   }
 }
