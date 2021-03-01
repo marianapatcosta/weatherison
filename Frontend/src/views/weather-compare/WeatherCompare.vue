@@ -18,7 +18,7 @@
             />
           </div>
         </div>
-
+        <div class="weather-compare__spacer--large">&nbsp;</div>
         <div
           v-if="!isLoading && weatherInfoForSelectedTime.length"
           class="weather-compare__cards"
@@ -35,10 +35,7 @@
           />
         </div>
 
-        <div
-          v-else-if="showNoData"
-          class="weather-compare--not-available"
-        >
+        <div v-else-if="showNoData" class="weather-compare--not-available">
           <img :src="require(`@/assets/weather-icons/error.svg`)" />
           <div>{{ $t("weatherCard.notAvailable") }}</div>
         </div>
@@ -70,6 +67,7 @@
           {{ selectedLocation | location }}
         </h1>
       </div>
+      <div class="weather-compare__spacer">&nbsp;</div>
       <div class="weather-compare__cards">
         <div
           v-for="(weather, index) in weatherDetailsData"
