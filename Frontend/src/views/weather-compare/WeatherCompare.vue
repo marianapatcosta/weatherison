@@ -40,6 +40,12 @@
           <img :src="require(`@/assets/weather-icons/error.svg`)" />
           <div>{{ $t("weatherCard.notAvailable") }}</div>
         </div>
+        <div v-else-if="!selectedWeatherApis.length" class="weather-compare__cards">
+          <WeatherCardPlaceholder
+            v-for="(api, index) in 3"
+            :key="index + Math.random()"
+          />
+        </div>
         <div v-else class="weather-compare__cards">
           <WeatherCardPlaceholder
             v-for="(api, index) in selectedWeatherApis"
