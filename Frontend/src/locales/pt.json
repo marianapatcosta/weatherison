@@ -10,6 +10,16 @@
     "wordsToDelete": ["Região de", "Distrito de", "Município"],
     "yourLocation": "localização atual"
   },
+  "footer": {
+    "authorName": "Mariana Costa",
+    "developedBy": "Concebido e desenvolvido por",
+    "github": "https://github.com/marianapatcosta",
+    "linkedin": "https://www.linkedin.com/in/marianapatcosta"
+  },
+  "modal": {
+    "errorHeader": "Ocorreu um erro",
+    "ok": "ok"
+  },
   "preferences": {
     "apiSelectionError": "Pelo menos uma previsão deve estar selecionada!",
     "celsius": "°C",
@@ -22,11 +32,7 @@
     "portuguese": "pt",
     "settings": "Definições",
     "temperatureUnit": "temperatura",
-    "weatherSources": "Fontes de previsão meteorológica"
-  },
-  "modal": {
-    "errorHeader": "Ocorreu um erro",
-    "ok": "ok"
+    "weatherSources": "Fonte"
   },
   "weatherCard": {
     "apparentTemp": "temperatura aparente",
