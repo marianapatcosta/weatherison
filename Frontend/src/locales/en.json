@@ -10,6 +10,16 @@
     "wordsToDelete": ["Region", "District", "Municipality"],
     "yourLocation": "your location"
   },
+  "footer": {
+    "authorName": "Mariana Costa",
+    "developedBy": "Design and developed by",
+    "github": "https://github.com/marianapatcosta",
+    "linkedin": "https://www.linkedin.com/in/marianapatcosta"
+  },
+  "modal": {
+    "errorHeader": "An error occurred",
+    "ok": "ok"
+  },
   "preferences": {
     "apiSelectionError": "At least one weather forecast should be selected!",
     "celsius": "°C",
@@ -22,11 +32,7 @@
     "portuguese": "pt",
     "settings": "Settings",
     "temperatureUnit": "temperature",
-    "weatherSources": "Weather sources"
-  },
-  "modal": {
-    "errorHeader": "An error occurred",
-    "ok": "ok"
+    "weatherSources": "Sources"
   },
   "weatherCard": {
     "apparentTemp": "apparent temperature",
