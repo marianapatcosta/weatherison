@@ -3,7 +3,7 @@
   height: 100vh;
 
   &__main {
-    height: calc(100% - 3.5rem);
+    height: calc(100% - 2.5rem);
   }
 
   &__footer {
@@ -19,7 +19,6 @@
     justify-content: center;
     align-items: center;
     position: fixed;
-    margin-top: 1rem;
 
     &-link {
       margin-left: 0.7rem;
