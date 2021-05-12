@@ -25,10 +25,6 @@
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
-
-    & > div {
-      margin: 0 0.625rem 1.5rem 0.625rem;
-    }
   }
 
   &__card {
