@@ -88,6 +88,7 @@
             {{ weather.time | date(lang) }}
           </div>
           <WeatherCard
+            class="weather-compare__card"
             :weatherInfo="weather"
             :apiName="apiForDetails"
             :isFahrenheit="isFahrenheit"
