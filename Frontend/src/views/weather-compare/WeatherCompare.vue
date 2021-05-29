@@ -25,6 +25,7 @@
           class="weather-compare__cards"
         >
           <WeatherCard
+            class="weather-compare__card"
             v-for="(weatherData, index) in weatherInfoForSelectedTime"
             :key="index + Math.random()"
             :weatherInfo="weatherData.weatherInfo"
@@ -39,6 +40,15 @@
         <div v-else-if="showNoData" class="weather-compare--not-available">
           <img :src="require(`@/assets/weather-icons/error.svg`)" />
           <div>{{ $t("weatherCard.notAvailable") }}</div>
+        </div>
+        <div
+          v-else-if="!selectedWeatherApis.length"
+          class="weather-compare__cards"
+        >
+          <WeatherCardPlaceholder
+            v-for="(api, index) in 3"
+            :key="index + Math.random()"
+          />
         </div>
         <div v-else class="weather-compare__cards">
           <WeatherCardPlaceholder
@@ -78,6 +88,7 @@
             {{ weather.time | date(lang) }}
           </div>
           <WeatherCard
+            class="weather-compare__card"
             :weatherInfo="weather"
             :apiName="apiForDetails"
             :isFahrenheit="isFahrenheit"

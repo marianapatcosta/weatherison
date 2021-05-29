@@ -25,10 +25,10 @@
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
+  }
 
-    & > div {
-      margin: 0 0.625rem 1.5rem 0.625rem;
-    }
+  &__card {
+    margin-bottom: 2.5rem;
   }
 
   &__date {
@@ -87,6 +87,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 1rem;
 
     &--button {
       font-size: 95%;

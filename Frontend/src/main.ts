@@ -25,6 +25,7 @@ import {
   faWind
 } from "@fortawesome/free-solid-svg-icons";
 import { faStar as faStarReg } from "@fortawesome/free-regular-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 library.add(
@@ -35,6 +36,8 @@ library.add(
   faCloudRain,
   faCircle,
   faEllipsisV,
+  faGithub,
+  faLinkedin,
   faMoon,
   faSearchLocation,
   faStar,
