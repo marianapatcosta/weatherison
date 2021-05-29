@@ -15,7 +15,7 @@
         >
           <font-awesome-icon icon="bars" />
         </span>
-        <h1 class="header__title">
+        <h1 class="header__title" translate="no">
           <span>WEA</span>
           <font-awesome-icon icon="umbrella" />
           <span>HER</span>
@@ -105,10 +105,7 @@
       />
     </transition>
     <transition name="fade" mode="out-in">
-      <div
-        ref="userPreferences"
-        v-show="isUserPreferencesOpened"
-      >
+      <div ref="userPreferences" v-show="isUserPreferencesOpened">
         <UserPreferences class="header__user-preferences" :apis="apis" />
       </div>
     </transition>
