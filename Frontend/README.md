@@ -1,4 +1,7 @@
-# weather-comparison-app
+# weatherison
+
+Simple web app designed to compare weather forecast of 6 weather apis: **accuweather**, **clima-cell**, **ipma**, **open weather map**, **weather bit**, **dark-sky**
+Developed with Vue, Typescript, NodeJS, ExpressJS, SCSS
 
 ## Project setup
 ```

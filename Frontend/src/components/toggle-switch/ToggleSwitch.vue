@@ -16,7 +16,7 @@
     />
     <span class="toggle-switch__slider">
       <span
-        class="toggle-switch__label"
+        class="toggle-switch__label toggle-switch__label--left"
         :class="{ 'toggle-switch__label--hidden': !checked }"
         >{{ leftLabel }}</span
       >

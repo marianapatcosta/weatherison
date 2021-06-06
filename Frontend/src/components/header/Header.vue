@@ -42,7 +42,7 @@
             <Button
               :aria-label="$t('header.yourLocation')"
               type="button"
-              icon="search-location"
+              icon="map-marker-alt"
               @mouseover.native="showTooltip = $t('header.yourLocation')"
               @mouseleave.native="showTooltip = ''"
               @click="defineCurrentPosition"
@@ -70,7 +70,7 @@
             @mouseover.native="showTooltip = $t('header.yourLocation')"
             @mouseleave.native="showTooltip = ''"
             type="button"
-            icon="search-location"
+            icon="map-marker-alt"
             @click="defineCurrentPosition"
           >
           </Button>
