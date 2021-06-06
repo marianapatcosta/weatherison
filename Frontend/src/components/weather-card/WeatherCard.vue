@@ -173,6 +173,8 @@
       <img :src="require(`@/assets/weather-icons/error.svg`)" />
       <div>{{ $t("weatherCard.notAvailable") }}</div>
     </div>
+
+    
     <div class="card__footer">
       <span class="card__footer--text">{{ $t("weatherCard.source") }}</span>
       <div

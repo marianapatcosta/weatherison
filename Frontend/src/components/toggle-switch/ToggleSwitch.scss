@@ -34,6 +34,10 @@
     &--hidden {
       visibility: hidden;
     }
+
+    &--left {
+      color: $color-white;
+    }
   }
 
   &__input {
@@ -83,7 +87,7 @@
       width: 1.25rem;
       min-width: 1.25rem;
       left: -0.3rem;
-      bottom: 0;
+      bottom: -0.0625rem;
       position: absolute;
       transition: 0.4s;
       -webkit-transition: 0.4s;
@@ -96,7 +100,7 @@
   }
 
   &__input:checked + &__slider {
-    background-color: $color-blue;
+    background-color: $color-font;
   }
 
   &__input:checked + &__slider--disabled {
@@ -113,5 +117,5 @@
     -ms-transform: translateX(1.6rem);
     -moz-transform: translateX(1.6rem);
     -o-transform: translateX(1.6rem);
-}
+  }
 }

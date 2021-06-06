@@ -9,9 +9,9 @@ Web app developed in VueJS and NodeJS/Express to compare the weather forecast re
 - open weather
 - weather bit
 
-The user can select which APIs want to consult and the default screen shows the comparative current weeather information. Easily, the comparative weather information for `today`and `tomorrow` can be accessed in this screen. By clicking on the displayed information for a specific API, another screen is rendered, showing the weather forecast information of that API for the following 5 days.
+The user can select which APIs want to consult and the default screen shows the comparative current weeather information. The comparative weather information for `today`and `tomorrow` can be accessed in this screen. By clicking on the displayed information for a specific API, another screen is rendered, showing the weather forecast information of that API for the following 5 days.
 
-The geolocation API is used to get user's location and display the forecast for this location by default. In addition, forecast information can be obtained to any locatiob, by typing `city` and `country` in the search field.
+The geolocation API is used to get user's location and display the forecast for this location by default. In addition, forecast information can be obtained to any location, by typing `city` and `country` in the search field.
 
 This app uses i18n and can be visualized either in english or in portuguese. Temperature can be observed in `celsius`or `fahrenheit` degrees.
 

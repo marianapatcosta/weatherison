@@ -84,9 +84,9 @@
           v-for="(weather, index) in weatherDetailsData"
           :key="index + Math.random()"
         >
-          <div class="weather-compare__date">
+          <time :datetime="weather.time" class="weather-compare__date">
             {{ weather.time | date(lang) }}
-          </div>
+          </time>
           <WeatherCard
             class="weather-compare__card"
             :weatherInfo="weather"
