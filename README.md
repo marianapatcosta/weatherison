@@ -15,6 +15,9 @@ The geolocation API is used to get user's location and display the forecast for 
 
 This app uses i18n and can be visualized either in english or in portuguese. Temperature can be observed in `celsius`or `fahrenheit` degrees.
 
+![weathersion-overview](https://user-images.githubusercontent.com/43031902/124003949-6ae85200-d9cf-11eb-9bc7-ad45e5e3aa87.png)
+
+
 ## To run Vue frontend, in "Frontend" directory:
 
 ### Run "npm i" ou "yarn install" to install the required dependencies
