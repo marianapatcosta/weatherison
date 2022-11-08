@@ -190,7 +190,7 @@ export default class WeatherCompare extends Vue {
         this.weatherResponses?.find((response) => response)?.getLocation() || "";
       this.getRejectedApis(responses);
     } catch (error) {
-      this.errorMessage = error;
+      this.errorMessage = error as LocaleMessage;
       this.showNoData = true;
     } finally {
       this.isLoading = false;
