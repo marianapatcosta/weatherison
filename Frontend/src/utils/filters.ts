@@ -73,11 +73,11 @@ export const uvValue = (value: any) => {
 };
 
 export const date = (time: number, lang: string) => {
-  const options = {
+  const options: Intl.DateTimeFormatOptions = {
     weekday: "long",
     year: "numeric",
     month: "long",
-    day: "numeric"
+    day: "numeric",
   };
   const l = lang === "en" ? "en-En" : "pt-PT";
   return new Date(time).toLocaleDateString(l, options);

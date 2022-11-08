@@ -56,7 +56,7 @@ export default class Header extends Vue {
       const response: any = await this.apisService.getApis(this.$http);
       this.apis = response.data;
     } catch (error) {
-      this.errorMessage = error;
+      this.errorMessage = error as LocaleMessage;
     }
   }
 
