@@ -10,7 +10,8 @@
     "object-literal-sort-keys": false,
     "interface-name": [true, "never-prefix"],
     "ordered-imports": false,
-    "@typescript-eslint/ban-ts-ignore": "off"
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "prettier/prettier": 0
   },
   "rulesDirectory": []
 }
